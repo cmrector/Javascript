@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label{display:inline-block; width:90px;text-align:right;}
+input{margin:3px 0;}
+[type=button] {position:relative; left: 95px; background-color:red;border-style:none; border-radius:5px; padding:5px 10px; box-shadow:2px 2px 4px black;color:white;}
+form, div{background-color:rgb(222,222,222);padding:20px; margin-bottom:20px;}
+
+
+
+    </style>
+</head>
+<body>
+    <form>
+        <label>Principle</label>
+        <input type="number" id="pInput"/><br/>
+        <label>Interest Rate</label>
+        <input type="number" name="rate" id="rate"/>
+        <br/>
+        <label>Time</label>
+        <input type="number" name="iTime" id="iTime"/><br/>
+        <input type="button" value="Calculate this"  onclick="calcInterest()"/></form>
+        
+        <div id="yourResults"></div>
+        <script>
+            function calcInterest() {
+  
+  var principle = parseFloat(document.getElementById('pInput').value); 
+  var interestR = parseFloat(document.getElementById('rate').value);
+  var time = parseFloat(document.getElementById('iTime').value);
+  var totalAmt = principle+(principle*(interestR*time));
+
+  document.getElementById('yourResults').innerHTML = "With a beginning principal of " + principle + " and with a growth rate of " + interestR + " for " + time + " years, your total interest will be " + totalAmt; 
+}
+
+        </script>
+</body>
+</html>

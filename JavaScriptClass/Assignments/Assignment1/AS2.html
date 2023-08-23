@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+  border:2px solid gray;
+  padding:5px;
+  width:60%;
+}
+
+div {border:1px solid black; width:200px; float:left;padding:5px 10px; margin-right: 1.5em;}
+
+section {
+  border:1px solid black;
+  margin-bottom:1em;
+  padding:0.25em 1em;
+}
+
+.clearfix::before, .clearfix::after {
+  content:"";
+  display:block;
+  clear:both;
+}
+    </style>
+</head>
+<body>
+    <h1>Simple Calculations</h1>
+<p>Read the directions and answer the following problems.</p>
+<!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/27019/Screen%20Shot%202017-08-09%20at%203.23.48%20PM.png"/> -->
+<section><h3>Dating</h3>
+<p>Larry takes two friends to the movie. If tickets cost $14.00, how much will Larry spend on tickets?</p>
+<p id="ticketNum">Tickets: </p>
+<p id="ticketCost">Cost: $</p>
+<p id="ttCost">Total: $<script>var pizza = 4; pizza;</script></p>
+</section>
+<section>
+  <h3>Shopping</h3>
+  <p>You have $235.87 in your bank account. You want to purchase a new outfit: shirt, pants, and shoes. Calculate how much money will be left if your account after your purchase. </p>
+  <ul>
+    <li>Jacket: $70</li>
+    <li>Sweater: $55</li>
+    <li>Shirt: $35</li>
+    <li>Pants: $75</li>
+    <li>Skirt: $49</li>
+    <li>Sandals: $30</li>
+    <li>Shoes: $60</li>
+  </ul>
+  <p id="bank">
+    <p>You decide you want to add a jacket to complete the outfit.Using expressions, display whether you have enough funds to add the jacket. (True or False)</p>
+        <p id="addJacket"></p>
+</section>
+<section>
+<h3>Pizza</h3>
+<p>If Professor Rector bought 4 pizzas and she estimated each student would eat 2.5 pieces of pizza and each pizza had 8 slices, how many students could she feed? How many pizzas would be left over for Professor Rector?</p>
+<p id='profPizza'></p>
+</section>
+<section class="clearfix">
+  <h3>Monty's Mega Bar</h3>
+    <p>Calculate the final price of the meal.</p>
+  <div>
+    <h3>Monty's MegaBar</h3>
+  <p>Adult: $12.00</p>
+  <p>Child: $6</p>
+  <p>Drinks: $1.50</p>
+</div>
+  <div>
+  <h3>Monty's MegaBar Receipt</h3>
+  <p>2 Adult Buffet<br/>
+    1 Child Buffet<br/>
+    3 Drinks</p>
+</div>
+<div><h3>Monty's Answers</h3>
+  <p id="Monty"></p>
+</div>
+</section>
+<section>
+  <h3>Average Earned Tips</h3>
+  <p>You work at a restaurant and want to figure out your average weekly tips. Find your weekly average for the past month.</p>
+  <ul>
+    <li>Week 1: 202.45</li>
+    <li>Week 2: 134.97</li>
+    <li>Week 3: 256.63</li>
+    <li>Week 4: 178.22</li>
+  </ul>
+  <p id="tips"></p>
+    
+  <script>
+    var ticketPrice = 14;
+var ticketQuantity = 3;
+var totalPrice = ticketPrice * ticketQuantity;
+document.getElementById('ticketNum').innerHTML = "Tickets: " + ticketQuantity;
+document.getElementById('ticketCost').innerHTML = "Cost: $" + ticketPrice;
+document.getElementById('ttCost').innerHTML = "Total: $" + totalPrice;
+
+var shirt = 35;
+var pants = 75;
+var shoes = 60;
+var outfit=shirt + shoes + pants;
+var bank = 235.87;
+var balance = bank-outfit;
+var jacket = 70;
+var addMore=balance>jacket;
+
+document.getElementById('bank').innerHTML= "After purchasing the outfit, my bank account balance is $" + balance + ".";
+document.getElementById('addJacket').innerHTML= "Add Jacket: "+ addMore;
+
+
+var profRectorPizza = (8*4)%2.5;
+var students = (8*4)/2.5;
+document.getElementById('profPizza').innerHTML = "Students: " + Math.floor(students) + "<br/>Rector: " + profRectorPizza;
+
+var adult = 12;
+var child = 6;
+var drink = 1.50;
+var tax = 0.08;
+var receipt = (2*adult)+(1*child)+(3*drink);
+// receipt +=receipt*tax;
+document.getElementById('Monty').innerHTML = "$"+receipt;
+
+var weeks = 202.45+134.97+256.63+178.22;
+var weekNum = 4;
+var weekAvg = weeks/weekNum;
+document.getElementById('tips').innerHTML = "Weekly Tip Average: $"+weekAvg;
+
+
+  </script>
+</body>
+</html>

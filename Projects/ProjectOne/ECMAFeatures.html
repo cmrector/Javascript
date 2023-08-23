@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ECMA Features</title>
+    <style>
+      * {
+        line-height: 150%;
+      }
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      section {
+        margin: 2em;
+        padding: 1em;
+        background-color: rgb(225, 225, 225);
+        border: 1px solid gray;
+        border-radius: 10px;
+        box-shadow: 2px 4px 8px gray;
+      }
+
+      .grayBox {
+        display: flex;
+        justify-content: space-between;
+      }
+      td,
+      th {
+        border: 1px solid black;
+        background-color: white;
+        padding: 0.5em;
+      }
+
+      th {
+        background-color: crimson;
+        color: white;
+        font-weight: bold;
+      }
+
+      h1,
+      h2 {
+        margin-top: 0;
+      }
+      div>h3 {
+        margin: 0;
+        background-color: gray;
+        padding: 0.4em;
+      }
+      div:not(.grayBox) {
+        min-width: 50%;
+        max-width: 90%;
+        padding: 0 0 1em 0;
+        background-color: black;
+      }
+      code p {
+        margin: 1em 1em 1em 2em;
+        font-size: 1.1em;
+      }
+
+      span {
+        color: white;
+        font-style: italic;
+      }
+      [id^="s"] p {
+        color: lime;
+      }
+      li>code {
+        position:relative;
+        left:1em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>ECMA 6 Important Features</h1>
+    <section>
+      <h2>Let and Const</h2>
+
+      <div class="grayBox">
+        <table>
+          <tr>
+            <th>Keyword</th>
+            <th>const</th>
+            <th>let</th>
+            <th>var</th>
+          </tr>
+          <tr>
+            <td>Global Scope</td>
+            <td>NO</td>
+            <td>NO</td>
+            <td>YES</td>
+          </tr>
+          <tr>
+            <td>Function Scope</td>
+            <td>YES</td>
+            <td>YES</td>
+            <td>YES</td>
+          </tr>
+          <tr>
+            <td>Block Scope</td>
+            <td>YES</td>
+            <td>YES</td>
+            <td>NO</td>
+          </tr>
+          <tr>
+            <td>Can Be Reassigned</td>
+            <td>NO</td>
+            <td>YES</td>
+            <td>YES</td>
+          </tr>
+        </table>
+        <div>
+          <h3>Code Outcome</h3>
+
+          <code id="s1"></code>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Default Parameters</h2>
+      <p>
+        The default parameter values can be placed right in the signature of the
+        functions
+      </p>
+      <div>
+        <h3>Code Outcome</h3>
+        <code id="s2"></code>
+      </div>
+    </section>
+    <section>
+      <h2>Template Literals</h2>
+      <p>
+        Variables can be used as a new syntax ${PARAMETER} inside of the
+        back-ticked string.
+      </p>
+      <code>
+        <p>var firstName="Gary";</p>
+        <p>var lastName="Smith";</p>
+        <p>
+          var name = `Your name is ${firstName} ${lastName}.`; <br />
+          <i>instead of</i> <br />
+          var name = 'Your name is ' + firstName + ' ' + lastName + '.';
+        </p>
+      </code>
+      <div id="s3">
+        <h3>Code Outcome</h3>
+      </div>
+    </section>
+    <section>
+      <h2>Arrow Function Expressions</h2>
+      <p>
+        Arrow functions are more condenses versions of ordinary function
+        expressions.
+      </p>
+      <code>
+        <p><i>//Ordinary Function</i></p>
+        <p>
+          function fullName(firstName, lastName) {<br />
+          &nbsp; &nbsp;return `${firstName} ${lastName}`;<br />
+          }
+        </p>
+      </code>
+      <div>
+        <h3>Code Outcome</h3>
+        <code id="s4">
+          <p>
+            var name = `Your name is ${firstName} ${lastName}.`; <br />
+            <span>instead of</span> <br />
+            var name = 'Your name is ' + firstName + ' ' + lastName + '.';
+          </p>
+        </code>
+      </div>
+    </section>
+
+    <section>
+      <h2>Classes</h2>
+      <p>Classes are object templates.</p>
+      <code>
+        <p>
+          class Book { <br/>
+            &nbsp; &nbsp; constructor(title, author, pubDate, yrsOld) {<br/>
+                &nbsp; &nbsp;&nbsp; &nbsp;  this.title= title; <br/>
+                &nbsp; &nbsp;&nbsp; &nbsp; this.author = author; <br/>
+                &nbsp; &nbsp;&nbsp; &nbsp;this.pubDate=pubDate;<br/>
+                &nbsp; &nbsp;}<br/>
+                &nbsp; &nbsp;yrsOld() { <br/>
+                    &nbsp; &nbsp;&nbsp; &nbsp;   const today= new Date(); <br/>
+                    &nbsp; &nbsp;&nbsp; &nbsp; return today.getFullYear()=this.pubDate; <br/>
+                    &nbsp; &nbsp; }<br/> }
+        </p>
+      </code>
+      <div>
+        <h3>Code Outcome</h3>
+        <code id="s5">
+        </code>
+      </div>
+    </section>
+    <section>
+      <h2>Spread and Rest Syntaxes</h2>
+      <p>Spread and rest syntaxes use ... (three dots) notation.</p>
+      <ul>
+        <li>
+          Rest Syntax
+          <ul>
+            <li>condenses array elements into a single element</li>
+            <li>
+              The text after the operator references values you want to include
+              in an array.
+            </li>
+            <li>You can only use it before the last parameter in an array.</li>
+          </ul>
+        </li>
+        <li>
+          Spread Syntax
+          <ul>
+            <li>expands array into separate elements</li>
+            <li>
+              Works within array literals, function calls, and initialized
+              property objects to spread values of iterabel objects into
+              separate items.
+            </li>
+            <li>Opposite of Rest syntax</li>
+          </ul>
+        </li>
+      </ul>
+      <code>
+        <p>
+          <i>Rest Syntax:</i><br />
+          function myBio(firstName, lastName, ...otherInfo) { <br />
+          &nbsp; &nbsp;return otherInfo;<br />
+          }
+        </p>
+        <p>
+          <i>Spread Syntax:</i><br />
+          const myName="Sally Smith";<br />
+          document.write([...yourName]);
+        </p>
+      </code>
+      <div>
+        <h3>Code Outcome</h3>
+        <code id="s6"> </code>
+      </div>
+    </section>
+    <section>
+      <h2>Destructuring Assignment</h2>
+      <p> Destructuring assignment lets you unpack an array or object into a bunch of variables. (Do this only if it is more convenient.)</p>
+     
+      <p>IMPORTANT NOTES:</p>
+      <ul>
+        <li>Destructuring does not mean <i>destructive</i>; the array stays in tact. It just copies the values into the variables. (This is seen in the code outcome.</li>
+        <li>You can ignore unwanted values by using an extra comma (example below)
+        </li>
+        <li>Works with any iterable on the right side.<br/>
+            <code>let [a, b, c] = "abc"; // ["a", "b", "c"];<br/>
+                let [one, two, three] = new Set([1, 2, 3]);</code>
+        </li>
+        <li>You can use it to loop over keys and values (example below)
+        </li>
+        <li>Can use it to swap values (example below)
+        </li>
+      </ul> </p>
+      <h3>Array Destructuring </h3>
+      <div>
+        <h3>Code Outcome</h3>
+        <code id="s7_array"> </code>
+      </div>
+      <h3>Object Destructuring</h3>
+      <p>An existing objects on the right side will be split into variables.</p>
+      <p>Note: Order does not matter. (example below)</p>
+      <div>
+        <h3>Code Outcome</h3>
+        <code id="s7_obj"> </code>
+      </div>
+    </section>
+    <script>
+            //Section 1: Let,var, and const
+            let x = 10;
+            if (x == 10) {
+              let x = 20;
+              document.getElementById("s1").innerHTML =
+                "<p>X where x=20: " + x + "</p>";
+            }
+            document.getElementById("s1").innerHTML += "<p>X default: " + x + "</p>";
+
+            var y = 10;
+            if (y == 10) {
+              var y = 20;
+              document.getElementById("s1").innerHTML +=
+                "<p>Y where y=20: " + y + "</p>"; //prints 20
+            }
+            document.getElementById("s1").innerHTML += "<p>Y default: " + y + "</p>";
+
+            //const myName; //throws error as const needs to be initialized
+            const myName = "John";
+            //const myName='Doe'; //throws  error as const variable can not be reassigned
+            //var myName='Doe'; //throws error as myName is reserved for constant above, same goes for let
+            document.getElementById("s1").innerHTML +=
+              "<p>Constant: " + myName + "</p>";
+
+            //Section 2: Default Parameters
+            function multiply(a, b = 2) {
+              return a * b;
+            }
+
+            let num1 = multiply(5);
+            console.log(num1);
+            document.getElementById("s2").innerHTML = "<p>Num1: " + num1 + "</p>";
+            let num2 = multiply(5, 8);
+            console.log(num2);
+            document.getElementById("s2").innerHTML += "<p>Num2: " + num2 + "</p>";
+
+            //Section 3: Template Literaals
+            var firstName = "Gary";
+            var lastName = "Smith";
+            var name = `Your name is ${firstName} ${lastName}.`;
+            var oldName = "Your name is " + firstName + " " + lastName + ".";
+            document.getElementById("s3").innerHTML +=
+              "<p>New Outcome: " + name + "</p>";
+            document.getElementById("s3").innerHTML +=
+              "<p>Old Outcome " + oldName + "</p>";
+
+            //Section 4: Arrow Functions
+            function fullName(firstName, lastName) {
+              return `${firstName} ${lastName}`;
+            }
+
+            fullName_New = (firstName, lastName) => {
+              return `${firstName} ${lastName}`;
+            };
+
+            document.getElementById("s4").innerHTML +=
+              "<p>Ordinary Function: " + fullName(firstName, lastName) + "</p>";
+            document.getElementById("s4").innerHTML +=
+              "<p>Arrow Function: " + fullName_New(firstName, lastName) + "</p>";
+
+
+              //Section 5: Classes
+              class Book {
+                  constructor(title, author, pubDate, yrsOld) {
+                  this.title = title;
+                this.author = author;
+                this.pubDate=pubDate;}
+                  yrsOld() {
+                      const today= new Date();
+                      return today.getFullYear()-this.pubDate;
+                  }
+              }
+
+              const jsBook = new Book("Javascript Mastery", "Cody G. Man", 2020);
+              document.getElementById('s5').innerHTML+="<p>New Book: " + jsBook.title + " is " + jsBook.yrsOld() + " years old.</p>";
+
+
+            //Section 6: Spread and Rest Syntaxes
+            // Use rest to enclose the rest of specific user-supplied values into an array:
+            function myBio(firstName, lastName, ...otherInfo) {
+              console.log(otherInfo);
+              return otherInfo;
+      ;      }
+
+            // Invoke myBio function while passing five arguments to its parameters:
+            document.getElementById('s6').innerHTML+="<p>Rest Syntax: "+ myBio("Joe", "Jones", "Sophomore", "Web Development", 22)+ "</p>";
+
+            const yourName="Sally Smith";
+
+            document.getElementById('s6').innerHTML+="<p>Spread Syntax: "+ [...yourName]+ "</p>";
+
+
+            //Destructuring Assignment
+            const course=['N220', 'Intro to Media Application Development'];
+            let [courseNum, courseTitle] = course;
+            document.getElementById('s7_array').innerHTML+=`<p>//Variable Values<br/>Course Number: ${courseNum} <br/>Course Title: ${courseTitle}</p>`;
+            document.getElementById('s7_array').innerHTML+=`<p>//Array values<br/>Course Number: ${course[0]} <br/>Course Title: ${course[1]}</p>`;
+
+            let [title, ,surName]=['Mr', 'Mike', 'Rogers', 'Sr'];
+            document.getElementById('s7_array').innerHTML+=`<p>//Skipping Values<br/>${title}. ${surName} </p>`;
+
+            let user = {
+                name: "John",
+                age: 30
+                    };
+                    document.getElementById('s7_array').innerHTML+=`<p>//Looping through entries</p>`;
+            // loop over keys-and-values
+            for (let [key, value] of Object.entries(user)) {
+                document.getElementById('s7_array').innerHTML+=`<p>${key}:${value}</p>`; 
+                // name:John, then age:30
+            }
+            let player = "John";
+                let admin = "Carol";
+                console.log(`${player} ${admin}`);
+
+//swap the Values   <br/>
+[player, admin] = [admin, player];
+
+console.log(`${player} ${admin}`); // Pete Jane (successfully swapped!)
+
+
+
+//Object Destructuring
+let options = {
+  optionTitle: "Menu",
+  width: 100,
+  height: 200
+};
+
+// let {optionTitle, width, height} = options;
+// // changed the order in let {...}
+// let {height, width, optionTitle} = { optionTitle: "Menu", height: 200, width: 100 };
+
+
+var objDestruction='';
+// objDestruction+=`<p>Option Title: ${optionTitle}<br/>`;  // Menu
+//     objDestruction+=`Option Title: ${width}<br/>`;  // 100
+//     objDestruction+=`Option Title: ${height}<br/>`; // 200
+
+    // { sourceProperty: targetVariable }
+let {width: w, height: h, optionTitle: oTitle} = options;
+objDestruction+=`<p>New Variables Option Title: ${oTitle}<br/>`;  // Menu
+    objDestruction+=`New Variables Option Title: ${w}<br/>`;  // 100
+    objDestruction+=`New Variables Option Title: ${h}<br/>`; // 200
+
+let {oColor="blue",optionTitle,width, height} = options;
+objDestruction+=`<p>New Properties Option Title: ${optionTitle}<br/>`;  // Menu
+    objDestruction+=`New Properties Option Title: ${width}<br/>`;  // 100
+    objDestruction+=`New Properties Option Title: ${height}<br/>`; // 200
+    objDestruction+=`New Properties Option Title: ${oColor}<br/>`; // blue
+
+
+
+    
+
+document.getElementById('s7_obj').innerHTML+=`<p>${objDestruction}</p>`;
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="game" onclick="startGame()" value="Let's Play!"/>
+    <script>
+
+
+function startGame() {
+  var userName = prompt("Welcome to my game! This is a choose-your-own-adventure mini game. Please start by entering your name:");
+  alert("Welcome, " + userName + "! Today we are going on a campus adventure. Are you ready? If so, click the button to continue.");
+  var tool=prompt("To begin our adventure, you will need to take a tool. Please pick your tool of choice: flashlight, shovel, ladder");
+  var room = prompt("You walk through Fairbanks and here a loud, menacing growl coming from a room downstairs. Do you ENTER the room or LEAVE?");
+  
+ function enterRoom() {
+   var hole=prompt("Upon entering the room, you see a large, deep hole in the ground and the growl seems to be coming from the hole. You chose a " + tool + ". Do you use your tool now? CHOOSE YES OR NO." );
+   
+   if (hole=="yes") {
+     if(tool=="flashlight") {
+       alert("You sure are brave! When you use your" + tool + "you see a dog that got trapped in the hole. Too bad you didn't chose the ladder. You could have saved the animal!  GAME OVER");
+     } else if (tool=="shovel") {
+       alert("You sure are brave! Whe you use your " + tool + " you see a dog that got trapped in the hole. Now you can use your shovel to dig an escape tunnel for the dog. Too bad BUPD didn't see that as a good thing! GAME OVER");
+     } else if (tool=="ladder") {
+       alert("You sure are brave! Whe you use your " + tool + " you see a dog that got trapped in the hole. You use your ladder to climb down and save the dog. What a hero!")
+     }
+   } else {
+     alert("Chicken. Game over for you. (You are no fun....)");
+   }
+ }
+  
+  function leaveRoom() {
+    var student = prompt("So you chose to run away from danger, huh? Well, that was probably a smart move. But while walking away, you hear a student wimpering outside of a bathroom. Do you STOP and ask him what's wrong or WALK away?");
+    if(student=="stop") {
+      if(tool=="flashlight") {
+        alert("You find out the student is deathly afraid of the dark and the lights won't work in the bathroom. Luckily you chose a " + tool + " and give it to the student. He is very grateful and gives you a sucker and a thumbs up. Good job! GAME OVER");
+     } else if (tool=="shovel") {
+       alert("You find out the student is deathly afraid of the dark and the lights won't work in the bathroom. Luckily you chose a " + tool + " and offer to a dig a hole in the woods for him. He looks at you like you are crazy and runs away screaming. Nice job. GAME OVER");
+      } else if (tool=="ladder") {
+        alert("You find out the student is deathly afraid of the dark and the lights won't work in the bathroom. Too bad you chose a  " + tool + " which really doesn't help the student. That sucks. GAME OVER");}
+     
+    } else if (student=="walk") {
+      alert("Really? You just won't help anyone will you. It's all about you, you, you. Ugh. Game over for you!");
+    }
+  }
+  if (room=="enter") {
+    enterRoom();
+  } else if (room=="leave") {
+    leaveRoom();
+  }
+}
+
+
+
+    </script>
+</body>
+</html>

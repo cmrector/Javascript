@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Manager</title>
+ <style>
+    .visible {
+        display:block;
+    }
+    .hidden {
+        display:none;
+    }
+    div, p{
+        margin:1em 2em;
+        padding:1em;
+        border:1px solid black;
+        background-color:lightgray;
+    }
+
+    p {
+        background-color:white;
+        line-height: 150%;
+    }
+
+ </style>
+</head>
+<body>
+  <h1>Task Manager</h1>
+  
+
+  <button >New Task</button>
+  <button >Remove Task</button>
+  <button >Print Tasks</button>
+  <button >Get Task Count</button>
+  <h2>   </h2>
+  <div><form>
+    <label>New Task: </label>
+    <input type="text" name="task" id="task"/><br/>
+    <label>Due Date: </label>
+    <input type="date" name="dueDate" id="dueDate"/><br/>
+    <label>Priority</label>
+    <select name="priority" id="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select>
+    <button type="button">Submit Task</button>
+  </form>
+</div>
+  <div id="printTasks"></div>
+  <script src="projectOne.js"></script>
+</body>
+</html>

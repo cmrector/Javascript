@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Welcome to DOM Assignment</h1>
+    <div id="container">
+      <p>This is a paragraph.</p>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+      </ul>
+      <button id="btn">Click Me</button>
+    </div>
+    <script>
+        document.querySelector('h1').innerHTML="DOM Manipulation";
+        document.getElementById('container').style.setProperty('background-color', 'lightblue');
+        var myList = document.getElementsByTagName("ul")[0];
+        var itemLi = document.createElement("li");
+        var nameText = document.createTextNode('Item 7');
+        itemLi.appendChild(nameText);
+        myList.appendChild(itemLi);
+        var myItems = document.querySelectorAll("ul li");
+        myItems[0].style.setProperty("color", "crimson");
+        myItems[2].style.setProperty("background-color", "pink");
+        myItems[4].style.setProperty("background-color", "yellow");
+        myItems[6].style.setProperty("background-color", "lightgray");
+        myItems[6].style.setProperty("color", "royalblue");
+
+        var itemLi = document.createElement("li");
+        var name2Text = document.createTextNode('Carrie Rector');
+        itemLi.appendChild(name2Text);
+        myList.appendChild(itemLi);
+
+        myList.removeChild(myItems[3]);
+
+        var clickBtn = document.getElementById('btn');
+        clickBtn.addEventListener('click', alertMe);
+
+        function alertMe() {
+            alert("Button clicked!");
+        }
+
+    </script>
+</body>
+</html>
